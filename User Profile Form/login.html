@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login</title>
+
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+      crossorigin="anonymous"
+    />
+
+    <link
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/login.css" />
+  </head>
+
+  <body>
+    <div class="container custom-box">
+      <div class="row custom-box">
+        <div
+          class="col-md-7 d-flex justify-content-center align-items-center flex-column left-box"
+        >
+          <div class="featured-image mb-3">
+            <img
+              src="./assets/pic-login.png"
+              class="img-fluid"
+              style="width: 650px"
+            />
+          </div>
+        </div>
+
+        <div
+          class="col-md-5 d-flex justify-content-center align-items-center flex-column right-box custom-form mx-auto"
+        >
+          <div class="row align-items-center">
+            <div class="header-text text-center">
+              <a href="#" class="d-flex justify-content-center">
+                <img src="./assets/avatar-login.svg" alt="" width="60"
+              /></a>
+              <h3 class="fw-bold fs-2">Log In</h3>
+              <p class="text-secondary fs-5">👋 Welcome Back!  </p>
+            </div>
+            <form id="loginForm">
+              <div class="form-group mb-3 px-3">
+                <label for="username">Username</label>
+                <div class="input-group mt-2">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text h-100" 
+                      ><i class="bx bx-user"></i
+                    ></span>
+                  </div>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="login-username"
+                    name="login-username"
+                    placeholder="Enter your name"
+                    required
+                  />
+                </div>
+              </div>
+              <div class="form-group mb-3 px-3">
+                <label for="password ">Password</label>
+                <div class="input-group mt-2">
+                  <div class="input-group-prepand">
+                    <span class="input-group-text h-100">
+                      <i class="bx bx-key"></i>
+                    </span>
+                  </div>
+                  <input
+                    type="password"
+                    class="form-control"
+                    id="login-password"
+                    name="login-password"
+                    placeholder="Password"
+                    required
+                  />
+                </div>
+              </div>
+              <div class="form-check form-switch my-3">
+                <div class="form-check ms-3 py-1">
+                  <input
+                    type="checkbox"
+                    class="form-check-input"
+                    id="form-switch"
+                  />
+                  <label
+                    for="form-check-label "
+                    class="form-check-label text-secondary"
+                  >
+                    Remember Me
+                  </label>
+                </div>
+              </div>
+              <div
+                class="form-group mt-3 mx-3 row gx-1 justify-content-center col-auto"
+              >
+                <button
+                  type="submit"
+                  class="btn btn-outline-success btn-block btn-lg mb-3"
+                >
+                  <i class="bx bx-lock-open-alt me-2"></i>Login
+                </button>
+              </div>
+            </form>
+            <div class="text-signup text-center">
+              <small
+                >Create an Account
+                <a href="register.html" class="fw-bold">Sign Up</a>
+              </small>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="./js/login.js"></script>
+  </body>
+</html>

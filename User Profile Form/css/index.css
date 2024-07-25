@@ -1,0 +1,105 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins%3Awght%40400%3B500&display=swap%27%29%3B");
+
+body {
+  font-size: "Poppins", sans-serif;
+  background: white;
+  height: 100dvh;
+}
+
+.custom-btn a {
+  text-decoration: none;
+  color: #0d6efd;
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.custom-btn {
+  border: 2px solid;
+}
+
+.custom-btn a:hover{
+  color: white;
+}
+
+.btn-outline-success a {
+  text-decoration: none;
+  color: #198754;
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.btn-outline-success{
+  border: 2px solid;
+}
+
+.btn-outline-success a:hover{
+ color: white;
+}
+
+.wrapper {
+  padding-left: 50px;
+  place-items: center;
+}
+
+.typing-demo {
+  width: 40ch;
+  animation: typing 2s steps(22), blink .5s step-end infinite alternate;
+  white-space: nowrap;
+  overflow: hidden;
+  border-right: 3px solid;
+  font-family: monospace;
+  font-size: 15px;
+}
+
+@keyframes typing {
+  from {
+    width: 0
+  }
+}
+    
+@keyframes blink {
+  50% {
+    border-color: transparent
+  }
+}
+
+.log-sign{
+  margin-left: 100px;
+}
+
+.img-container {
+  height: 75%;
+  padding-top: 40px;
+}
+
+.image {
+  min-width: max(200px, 30%);
+  height: 600px;
+  overflow: hidden;
+ 
+}
+
+@media only screen and (max-width: 768px) {
+  .log-sign {
+    padding: 5px;
+  }
+  .img-container{
+    height: 0;
+    display: none !important;
+    padding: 10px;
+  }
+  .typing-demo p{
+    text-align: center;
+  }
+  h1{
+    padding-left: 60px;
+    text-align: center;
+  }
+  p{
+    padding-left: 15px;
+  }
+  .typing-demo{
+    width: 42ch;
+  }
+  
+}
