@@ -1,21 +1,21 @@
 {
-    "name": "pugal/task1",
-    "description": "User form",
-    "type": "project",
-    "require": {
-        "mongodb/mongodb": "^1.19",
-        "predis/predis": "^2.2"
-    },
-    "license": "MIT",
-    "autoload": {
-        "psr-4": {
-            "Pugal\\Task1\\": "src/"
-        }
-    },
-    "authors": [
-        {
-            "name": "Pugalenthi",
-            "email": "pugal2327@gmail.com"
-        }
-    ]
+  "name": "pugal/task1",
+  "description": "User form",
+  "type": "project",
+  "require": {
+    "mongodb/mongodb": "^1.19",
+    "predis/predis": "^2.2"
+  },
+  "license": "MIT",
+  "autoload": {
+    "psr-4": {
+      "Pugal\\Task1\\": "src/"
+    }
+  },
+  "authors": [
+    {
+      "name": "Pugalenthi",
+      "email": "pugal2327@gmail.com"
+    }
+  ]
 }
