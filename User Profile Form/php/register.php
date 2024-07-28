@@ -1,5 +1,9 @@
 <?php
 header('Content-Type: application/json');
+header("Access-Control-Allow-Origin: *");
+header("Access-Control-Allow-Methods: POST, GET");
+header("Access-Control-Allow-Headers: Content-Type, Authorization");
+
 require '../vendor/autoload.php';
 
 $servername = "localhost";
@@ -24,9 +28,9 @@ try {
 }
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    $username = $_POST['register-username'];
-    $password = password_hash($_POST['register-password'], PASSWORD_BCRYPT);
-    $email = $_POST['register-email'];
+    $username = $_POST['registerUsername'];
+    $password = password_hash($_POST['registerPassword'], PASSWORD_BCRYPT);
+    $email = $_POST['registerEmail'];
 
     $stmt = $conn->prepare("INSERT INTO users (username, password, email) VALUES (?, ?, ?)");
     $mysqlSuccess = $stmt->execute([$username, $password, $email]);

@@ -30,12 +30,8 @@ let redirectToLogin = () => {
   window.location.href = "login.html";
 };
 
-let getStoredEmail = () => {
-  return localStorage.getItem("email");
-};
-
 let populateProfileFields = () => {
-  var storedEmail = getStoredEmail();
+  var storedEmail = localStorage.getItem("email");
   if (storedEmail) {
     $("#email").val(storedEmail);
     fetchProfileData(storedEmail);
@@ -55,11 +51,15 @@ let setProfileFields = (profile) => {
 };
 
 let fetchProfileData = (email) => {
+  let backendUrl = "https://fond-generally-stag.ngrok-free.app/Task%201/php";
   $.ajax({
     type: "GET",
-    url: "php/profile.php",
+    url: `${backendUrl}/profile.php`,
     data: { email: email },
     dataType: "json",
+    headers: {
+      "ngrok-skip-browser-warning": "69420",
+    },
     success: function (response) {
       console.log(response);
 
@@ -72,7 +72,7 @@ let fetchProfileData = (email) => {
     error: function (xhr, status, error) {
       console.error("AJAX Error:", status, error);
       console.error("Response Text:", xhr.responseText);
-      showAlertMessage(
+      alert(
         "An error occurred while fetching your profile data. Please try again."
       );
     },
@@ -80,6 +80,7 @@ let fetchProfileData = (email) => {
 };
 
 let handleProfileFormSubmit = (event, token) => {
+  let backendUrl = "https://fond-generally-stag.ngrok-free.app/Task%201/php";
   event.preventDefault();
   console.log("Form submitted");
 
@@ -90,31 +91,30 @@ let handleProfileFormSubmit = (event, token) => {
   console.log(data);
   $.ajax({
     type: "POST",
-    url: "php/profile.php",
+    url: `${backendUrl}/profile.php`,
     data: data,
     dataType: "json",
+    headers: {
+      "ngrok-skip-browser-warning": "69420",
+    },
     success: function (response) {
       console.log(response);
       try {
         var res = response;
-        showAlertMessage(res.message);
+        alert(res.message);
       } catch (e) {
         console.error("Error parsing JSON response:", e);
-        showAlertMessage("An error occurred. Please try again.");
+        alert("An error occurred. Please try again.");
       }
     },
     error: function (xhr, status, error) {
       console.error("AJAX Error:", status, error);
       console.error("Response Text:", xhr.responseText);
-      showAlertMessage(
+      alert(
         "An error occurred while processing your request. Please try again."
       );
     },
   });
-};
-
-let showAlertMessage = (message) => {
-  alert(message);
 };
 
 let logout = () => {

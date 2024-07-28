@@ -1,17 +1,18 @@
 $(document).ready(function () {
+  let backendUrl = "https://fond-generally-stag.ngrok-free.app/Task%201/php";
   $("#registerForm").on("submit", function (event) {
-    registerFormSubmit(event, this);
+    let formData = $(this).serialize();
+    registerFormSubmit(event, formData, backendUrl);
   });
 });
 
-let registerFormSubmit = (event, form) => {
+let registerFormSubmit = (event, formData, backendUrl) => {
+  console.log(formData);
   event.preventDefault();
-  let data = $(form).serialize();
-  console.log(data);
   $.ajax({
     type: "POST",
-    url: "php/register.php",
-    data: data,
+    url: `${backendUrl}/register.php`,
+    data: formData,
     success: function (response) {
       console.log(response);
       var res = response;
@@ -24,7 +25,7 @@ let registerFormSubmit = (event, form) => {
       console.error("AJAX Error:", status, error);
       console.error("Response Text:", xhr.responseText);
       alert(
-        "An error occurred while fetching your profile data. Please try again."
+        "An error occurred while processing your request. Please try again."
       );
     },
   });

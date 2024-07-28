@@ -1,25 +1,26 @@
 $(document).ready(function () {
   if (localStorage.getItem("rememberMe") === "true") {
-    $("#login-username").val(localStorage.getItem("username"));
-    $("#login-password").val(localStorage.getItem("password"));
-    $("#form-checkbox").prop("checked", true);
+    $("#loginUsername").val(localStorage.getItem("username"));
+    $("#loginPassword").val(localStorage.getItem("password"));
+    $("#form-switch").prop("checked", true);
   }
 
   $("#loginForm").on("submit", function (event) {
     event.preventDefault();
 
     var formData = $(this).serialize();
-    var rememberMe = $("#form-switch").is(":checked");
-    console.log("clicked");
-    console.log(formData);
+    var rememberMe = $("#form-checkbox").is(":checked");
+
     loginUser(formData, rememberMe);
   });
 });
 
 function loginUser(formData, rememberMe) {
+  let backendUrl = "https://fond-generally-stag.ngrok-free.app/Task%201/php";
+  console.log(formData);
   $.ajax({
     type: "POST",
-    url: "php/login.php",
+    url: `${backendUrl}/login.php`,
     dataType: "json",
     data: formData,
     success: function (response) {
@@ -38,8 +39,8 @@ function loginUser(formData, rememberMe) {
         if (rememberMe) {
           localStorage.setItem("session_token", res.token);
           localStorage.setItem("rememberMe", true);
-          localStorage.setItem("username", $("#login-username").val());
-          localStorage.setItem("password", $("#login-password").val());
+          localStorage.setItem("username", $("#loginUsername").val());
+          localStorage.setItem("password", $("#loginPassword").val());
         } else {
           sessionStorage.setItem("session_token", res.token);
           localStorage.removeItem("rememberMe");
@@ -54,9 +55,8 @@ function loginUser(formData, rememberMe) {
     error: function (xhr, status, error) {
       console.error("AJAX Error:", status, error);
       console.error("Response Text:", xhr.responseText);
-      alert(data);
       alert(
-        "An error occurred while fetching your profile data. Please try again."
+        "An error occurred while processing your request. Please try again."
       );
     },
   });

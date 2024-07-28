@@ -1,6 +1,10 @@
 <?php
-require '../vendor/autoload.php';
 header('Content-Type: application/json');
+header("Access-Control-Allow-Origin: *");
+header("Access-Control-Allow-Methods: POST, GET");
+header("Access-Control-Allow-Headers: Content-Type, Authorization");
+
+require '../vendor/autoload.php';
 
 $servername = "localhost";
 $username = "root";
@@ -27,8 +31,8 @@ try {
 }
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    $username = $_POST['login-username'];
-    $password = $_POST['login-password'];
+    $username = $_POST['loginUsername'];
+    $password = $_POST['loginPassword'];
 
     $stmt = $conn->prepare("SELECT id, password, email FROM users WHERE username = ?");
     $stmt->execute([$username]);
