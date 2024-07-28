@@ -15,14 +15,17 @@ Task involves implementing a series of steps for a web development project. This
 ### Steps
 
 1. **Project Setup:**
+
    - Initialize the project repository and set up the development environment.
    - Install necessary dependencies and tools.
 
 2. **Implementation:**
+
    - Develop the core functionality of the application.
    - Implement features based on the project requirements.
 
 3. **Testing:**
+
    - Conduct thorough testing to ensure the application functions as expected.
    - Address any bugs or issues discovered during testing.
 
