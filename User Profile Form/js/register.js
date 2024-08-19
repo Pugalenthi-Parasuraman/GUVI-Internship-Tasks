@@ -1,3 +1,5 @@
+import "../css/sass/register.scss";
+
 $(document).ready(function () {
   let backendUrl = "https://fond-generally-stag.ngrok-free.app/Task%201/php";
   $("#registerForm").on("submit", function (event) {

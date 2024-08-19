@@ -1,3 +1,5 @@
+import "../css/sass/login.scss";
+
 $(document).ready(function () {
   if (localStorage.getItem("rememberMe") === "true") {
     $("#loginUsername").val(localStorage.getItem("username"));

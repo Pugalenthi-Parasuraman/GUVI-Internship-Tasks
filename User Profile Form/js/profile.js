@@ -1,3 +1,5 @@
+import "../css/sass/profile.scss";
+
 $(document).ready(function () {
   var token = getToken();
   console.log(token);
